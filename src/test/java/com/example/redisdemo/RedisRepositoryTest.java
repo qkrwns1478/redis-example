@@ -1,5 +1,7 @@
 package com.example.redisdemo;
 
+import com.example.redisdemo.item.Item;
+import com.example.redisdemo.item.ItemRepository;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
