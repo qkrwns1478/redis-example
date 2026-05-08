@@ -19,4 +19,9 @@ public class RedisConfig {
         template.setValueSerializer(RedisSerializer.json()); // Value 데이터를 JSON으로 직렬화
         return template; // Bean 객체로 등록
     }
+
+    @Bean
+    public RedisSerializer<Object> springSessionDefaultRedisSerializer() {
+        return RedisSerializer.json();
+    }
 }
