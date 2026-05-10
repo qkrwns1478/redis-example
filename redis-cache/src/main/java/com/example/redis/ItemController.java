@@ -54,4 +54,13 @@ public class ItemController {
     ) {
         itemService.delete(id);
     }
+
+    @GetMapping("search")
+    public Page<ItemDto> search(
+            @RequestParam(name = "q")
+            String query,
+            Pageable pageable
+    ) {
+        return itemService.searchByName(query, pageable);
+    }
 }
