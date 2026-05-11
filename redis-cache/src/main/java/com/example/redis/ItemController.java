@@ -1,6 +1,7 @@
 package com.example.redis;
 
 import com.example.redis.domain.ItemDto;
+import com.example.redis.domain.ItemOrderDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -62,5 +63,19 @@ public class ItemController {
             Pageable pageable
     ) {
         return itemService.searchByName(query, pageable);
+    }
+
+    @PostMapping("{id}/purchase")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void purchase(
+            @RequestBody
+            ItemOrderDto dto
+    ) {
+        itemService.purchase(dto);
+    }
+
+    @GetMapping("/ranks")
+    public List<ItemDto> getRanks() {
+        return itemService.getMostSold();
     }
 }
